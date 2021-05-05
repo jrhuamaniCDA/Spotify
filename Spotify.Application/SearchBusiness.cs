@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using Spotify.Domain.Enums;
-using Spotify.Domain.Interfaces;
 using Spotify.Domain.Response;
+using Spotify.Service;
 
 namespace Spotify.Application
 {
-    public class SearchBusiness : ISearchBusiness
+    public class SearchBusiness //: ISearchBusiness
     {
-        private ISearchService _searchService { get; set; }
-        public SearchBusiness(ISearchService searchBusiness)
+        private SearchService _searchService { get; set; }
+        public SearchBusiness()
         {
-            _searchService = searchBusiness;
+            _searchService = new SearchService ();
         }
         public List<Artist> Search(string name, SearchEnum type)
         {

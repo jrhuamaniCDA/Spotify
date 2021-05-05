@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Spotify.Application;
 using Spotify.Domain.Enums;
-using Spotify.Domain.Interfaces;
 
 namespace Spotify.Api.Controllers
 {
@@ -8,10 +8,10 @@ namespace Spotify.Api.Controllers
     [ApiController]
     public class SearchController : ControllerBase
     {
-        private readonly ISearchBusiness _searchBusiness;
-        public SearchController(ISearchBusiness searchBusiness)
+        private readonly SearchBusiness _searchBusiness;
+        public SearchController()
         {
-            _searchBusiness = searchBusiness;
+            _searchBusiness = new SearchBusiness();
         }
 
         [HttpGet]
