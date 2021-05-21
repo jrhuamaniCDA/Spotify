@@ -1,4 +1,6 @@
-﻿namespace Spotify.Domain.Response
+﻿using Microsoft.AspNetCore.Hosting;
+
+namespace Spotify.Domain.Response
 {
     public class Artist
     {
@@ -8,5 +10,6 @@
         public string name { get; set; }
         public int popularity { get; set; }
         public string type { get; set; }
+
     }
 }

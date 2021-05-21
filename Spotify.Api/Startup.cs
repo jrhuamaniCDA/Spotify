@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Spotify.Api.Controllers;
 using Spotify.Application;
 using Spotify.Domain.Interfaces;
 using Spotify.Service;
@@ -23,8 +24,8 @@ namespace Spotify.Api
         {
             services.AddControllers();
 
-            //services.AddTransient<ISearchBusiness, SearchBusiness>();
-            //services.AddTransient<ISearchService, SearchService>();
+            services.AddTransient<ISearchBusiness, SearchBusiness>();
+            services.AddTransient<ISearchService, SearchService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

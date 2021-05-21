@@ -2,11 +2,12 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
+using Spotify.Domain.Interfaces;
 using Spotify.Domain.Models;
 
 namespace Spotify.Service
 {
-    public class SearchService //: ISearchService
+    public class SearchService : ISearchService
     {
         private readonly HttpClient _httpClient;
         public SearchService()
@@ -29,9 +30,12 @@ namespace Spotify.Service
 
                 var result = _httpClient.GetAsync(uri).Result;
 
-                result.EnsureSuccessStatusCode(); // si no es un 200...
+                //result.EnsureSuccessStatusCode(); // si no es un 200...
 
                 var status = (int)result.StatusCode;
+                //var list = new List<ArtistSearch>();
+
+
 
                 var responseJson = result.Content.ReadAsStringAsync().Result;
 
